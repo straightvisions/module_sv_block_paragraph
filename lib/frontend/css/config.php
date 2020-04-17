@@ -26,7 +26,7 @@
 			$font_weight[$breakpoint]	= false;
 		}
 	}
-	if(isset($font['family'])){
+	if($font_family){
 		$properties['font-family']	= $setting->prepare_css_property_responsive($font_family,'',', sans-serif;');
 		$properties['font-weight']	= $setting->prepare_css_property_responsive($font_weight,'','');
 	}
