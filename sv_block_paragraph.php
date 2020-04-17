@@ -21,6 +21,7 @@
 				->set_section_desc( $this->get_module_desc() )
 				->set_section_type( 'settings' )
 				->set_section_template_path( $this->get_path( 'lib/backend/tpl/settings.php' ) )
+				->set_section_order(130)
 				->get_root()
 				->add_section( $this );
 		}
