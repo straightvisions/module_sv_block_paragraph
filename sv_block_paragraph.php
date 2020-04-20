@@ -73,11 +73,11 @@
 
 		protected function register_scripts(): sv_block_paragraph {
 			// Register Styles
-			$this->get_script( 'default' )
+			$this->get_script( 'common' )
 				->set_is_gutenberg()
-				->set_path( 'lib/frontend/css/default.css' );
+				->set_path( 'lib/frontend/css/common.css' );
 
-			$this->get_script( 'inline_config' )
+			$this->get_script( 'config' )
 				->set_path( 'lib/frontend/css/config.php' )
 				->set_is_gutenberg()
 				->set_inline( true );
@@ -96,8 +96,8 @@
 				}
 			}
 
-			$this->get_script( 'default' )->set_is_enqueued();
-			$this->get_script( 'inline_config' )->set_is_enqueued();
+			$this->get_script( 'common' )->set_is_enqueued();
+			$this->get_script( 'config' )->set_is_enqueued();
 
 			return $this;
 		}
