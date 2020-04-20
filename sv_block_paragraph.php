@@ -27,7 +27,7 @@
 		}
 
 		protected function load_settings(): sv_block_paragraph {
-			$this->get_setting( 'font_family' )
+			$this->get_setting( 'font' )
 				->set_title( __( 'Font Family', 'sv100' ) )
 				->set_description( __( 'Choose a font for your text.', 'sv100' ) )
 				->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
@@ -49,7 +49,7 @@
 
 			$this->get_setting( 'text_color' )
 				->set_title( __( 'Text Color', 'sv100' ) )
-				->set_default_value( '#1e1e1e' )
+				->set_default_value( '30,30,30,1' )
 				->set_is_responsive(true)
 				->load_type( 'color' );
 
