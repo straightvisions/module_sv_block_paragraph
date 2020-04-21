@@ -26,7 +26,7 @@
 			$font_weight[$breakpoint]	= false;
 		}
 	}
-	if($font_family){
+	if($font_family && (count(array_unique($font_family)) > 1 || array_unique($font_family)['mobile'] !== false)){
 		$properties['font-family']	= $setting->prepare_css_property_responsive($font_family,'',', sans-serif;');
 		$properties['font-weight']	= $setting->prepare_css_property_responsive($font_weight,'','');
 	}
