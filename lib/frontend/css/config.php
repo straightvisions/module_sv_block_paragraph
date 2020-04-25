@@ -82,35 +82,27 @@
 
 	// border
 	if($border) {
-		foreach($border as &$query){
-			if($query['top_width']){
-				$val		= $query['top_width'].' '.$query['top_style'].' rgba('.$query['color'].')';
-				$properties['border-top'] = $setting->prepare_css_property_responsive($val, '', '');
-			}
-			if($query['right_width']){
-				$val		= $query['right_width'].' '.$query['right_style'].' rgba('.$query['color'].')';
-				$properties['border-right'] = $setting->prepare_css_property_responsive($val, '', '');
-			}
-			if($query['bottom_width']){
-				$val		= $query['bottom_width'].' '.$query['bottom_style'].' rgba('.$query['color'].')';
-				$properties['border-bottom'] = $setting->prepare_css_property_responsive($val, '', '');
-			}
-			if($query['left_width']){
-				$val		= $query['left_width'].' '.$query['left_style'].' rgba('.$query['color'].')';
-				$properties['border-left'] = $setting->prepare_css_property_responsive($val, '', '');
-			}
-
-			$query['top_left_radius'] 		= (empty($query['top_left_radius'])) ? 0 : (int)$query['top_left_radius'];
-			$query['top_right_radius'] 		= (empty($query['top_right_radius'])) ? 0 : (int)$query['top_right_radius'];
-			$query['bottom_right_radius'] 	= (empty($query['bottom_right_radius'])) ? 0 : (int)$query['bottom_right_radius'];
-			$query['bottom_left_radius'] 	= (empty($query['bottom_left_radius'])) ? 0 : (int)$query['bottom_left_radius'];
-
-			if($query['top_left_radius'] + $query['top_right_radius'] + $query['bottom_right_radius'] + $query['bottom_left_radius'] > 0) {
-				$query_radius = $query['top_left_radius'] . ' ' . $query['top_right_radius'] . ' ' . $query['bottom_right_radius'] . ' ' . $query['bottom_left_radius'];
-				$properties['border-radius'] = $setting->prepare_css_property_responsive($query_radius, '', '');
-			}
+		if($border['top_width']){
+			$val		= $border['top_width'].' '.$border['top_style'].' rgba('.$border['color'].')';
+			$properties['border-top'] = $setting->prepare_css_property_responsive($val, '', '');
 		}
-		
+		if($border['right_width']){
+			$val		= $border['right_width'].' '.$border['right_style'].' rgba('.$border['color'].')';
+			$properties['border-right'] = $setting->prepare_css_property_responsive($val, '', '');
+		}
+		if($border['bottom_width']){
+			$val		= $border['bottom_width'].' '.$border['bottom_style'].' rgba('.$border['color'].')';
+			$properties['border-bottom'] = $setting->prepare_css_property_responsive($val, '', '');
+		}
+		if($border['left_width']){
+			$val		= $border['left_width'].' '.$border['left_style'].' rgba('.$border['color'].')';
+			$properties['border-left'] = $setting->prepare_css_property_responsive($val, '', '');
+		}
+
+		if($border['top_left_radius']+$border['top_right_radius']+$border['bottom_right_radius']+$border['bottom_left_radius']!==0) {
+			$border_radius = $border['top_left_radius'] . ' ' . $border['top_right_radius'] . ' ' . $border['bottom_right_radius'] . ' ' . $border['bottom_left_radius'];
+			$properties['border-radius'] = $setting->prepare_css_property_responsive($border_radius, '', '');
+		}
 	}
 
 	echo $setting->build_css(
