@@ -57,7 +57,7 @@
 			}
 		}
 		if($imploded) {
-			$properties['margin'] = $setting->prepare_css_property_responsive($imploded, '', '');
+			$properties['margin'] = $setting->prepare_css_property_responsive($imploded, '', ''); // unnecessary , returns the same as line 56?
 		}
 	}
 
@@ -82,22 +82,27 @@
 
 	// border
 	if($border) {
-		foreach($border as &$query){
-			if($query['top_width']){
-				$val		= $query['top_width'].' '.$query['top_style'].' rgba('.$query['color'].')';
-				$properties['border-top'] = $setting->prepare_css_property_responsive($val, '', '');
+
+		foreach ($border as $breakpoint => &$query) {
+
+			if ($query['top_width']) {
+				$val = $query['top_width'] . ' ' . $query['top_style'] . ' rgba(' . $query['color'] . ')';
+				$properties['border-top'][$breakpoint] 		= $val;
 			}
-			if($query['right_width']){
-				$val		= $query['right_width'].' '.$query['right_style'].' rgba('.$query['color'].')';
-				$properties['border-right'] = $setting->prepare_css_property_responsive($val, '', '');
+
+			if ($query['right_width']) {
+				$val = $query['right_width'] . ' ' . $query['right_style'] . ' rgba(' . $query['color'] . ')';
+				$properties['border-right'][$breakpoint] 	= $val;
 			}
-			if($query['bottom_width']){
-				$val		= $query['bottom_width'].' '.$query['bottom_style'].' rgba('.$query['color'].')';
-				$properties['border-bottom'] = $setting->prepare_css_property_responsive($val, '', '');
+
+			if ($query['bottom_width']) {
+				$val = $query['bottom_width'] . ' ' . $query['bottom_style'] . ' rgba(' . $query['color'] . ')';
+				$properties['border-bottom'][$breakpoint] 	= $val;
 			}
-			if($query['left_width']){
-				$val		= $query['left_width'].' '.$query['left_style'].' rgba('.$query['color'].')';
-				$properties['border-left'] = $setting->prepare_css_property_responsive($val, '', '');
+
+			if ($query['left_width']) {
+				$val = $query['left_width'] . ' ' . $query['left_style'] . ' rgba(' . $query['color'] . ')';
+				$properties['border-left'][$breakpoint] 	= $val;
 			}
 
 			$query['top_left_radius'] 		= (empty($query['top_left_radius'])) ? 0 : (int)$query['top_left_radius'];
@@ -105,12 +110,14 @@
 			$query['bottom_right_radius'] 	= (empty($query['bottom_right_radius'])) ? 0 : (int)$query['bottom_right_radius'];
 			$query['bottom_left_radius'] 	= (empty($query['bottom_left_radius'])) ? 0 : (int)$query['bottom_left_radius'];
 
-			if($query['top_left_radius'] + $query['top_right_radius'] + $query['bottom_right_radius'] + $query['bottom_left_radius'] > 0) {
-				$query_radius = $query['top_left_radius'] . ' ' . $query['top_right_radius'] . ' ' . $query['bottom_right_radius'] . ' ' . $query['bottom_left_radius'];
-				$properties['border-radius'] = $setting->prepare_css_property_responsive($query_radius, '', '');
+			if ($query['top_left_radius'] + $query['top_right_radius'] + $query['bottom_right_radius'] + $query['bottom_left_radius'] > 0) {
+				// @todo: implement unit settings here
+				//$query_radius = $query['top_left_radius'] . ' ' . $query['top_right_radius'] . ' ' . $query['bottom_right_radius'] . ' ' . $query['bottom_left_radius'];
+				$query_radius = $query['top_left_radius'] . 'px ' . $query['top_right_radius'] . 'px ' . $query['bottom_right_radius'] . 'px ' . $query['bottom_left_radius'] . 'px';
+				$properties['border-radius'][$breakpoint] 	= $query_radius;
 			}
 		}
-		
+
 	}
 
 	echo $setting->build_css(
