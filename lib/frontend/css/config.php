@@ -117,7 +117,7 @@
 				$properties['border-radius'][$breakpoint] 	= $query_radius;
 			}
 		}
-
+    
 	}
 
 	echo $setting->build_css(
