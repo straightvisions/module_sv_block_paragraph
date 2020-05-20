@@ -56,6 +56,12 @@
 			$this->get_setting( 'margin' )
 				->set_title( __( 'Margin', 'sv100' ) )
 				->set_is_responsive(true)
+				->set_default_value(array(
+					'top'		=> '0',
+					'right'		=> 'auto',
+					'bottom'	=> '0',
+					'left'		=> 'auto'
+				))
 				->load_type( 'margin' );
 
 			$this->get_setting( 'padding' )
@@ -72,11 +78,6 @@
 		}
 
 		protected function register_scripts(): sv_block_paragraph {
-			// Register Styles
-			$this->get_script( 'common' )
-				->set_is_gutenberg()
-				->set_path( 'lib/frontend/css/common.css' );
-
 			$this->get_script( 'config' )
 				->set_path( 'lib/frontend/css/config.php' )
 				->set_is_gutenberg()
@@ -91,8 +92,7 @@
 			if(!$this->has_block_frontend('paragraph')){
 				return $this;
 			}
-
-			$this->get_script( 'common' )->set_is_enqueued();
+			
 			$this->get_script( 'config' )->set_is_enqueued();
 
 			return $this;
