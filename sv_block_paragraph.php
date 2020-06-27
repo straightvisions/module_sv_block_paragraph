@@ -36,8 +36,8 @@
 
 			$this->get_setting( 'font_size' )
 				->set_title( __( 'Font Size', 'sv100' ) )
-				->set_description( __( 'Font Size in pixel.', 'sv100' ) )
-				->set_default_value( 16 )
+				->set_description( __( 'Font Size in Pixel', 'sv100' ) )
+				->set_default_value( $this->get_module( 'sv_common' )->get_setting('font_size')->get_data() )
 				->set_is_responsive(true)
 				->load_type( 'number' );
 
@@ -57,10 +57,10 @@
 				->set_title( __( 'Margin', 'sv100' ) )
 				->set_is_responsive(true)
 				->set_default_value(array(
-					'top'		=> '0',
-					'right'		=> 'auto',
-					'bottom'	=> '0',
-					'left'		=> 'auto'
+					'top'		=> '10',
+					'right'		=> 'auto', // could be wrong
+					'bottom'	=> '20px',
+					'left'		=> 'auto' // could be wrong
 				))
 				->load_type( 'margin' );
 
