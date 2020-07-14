@@ -17,6 +17,7 @@
 				->set_module_desc( __( 'Settings for Gutenberg Block', 'sv100' ) )
 				->load_settings()
 				->register_scripts()
+				->block_styles()
 				->set_section_title( $this->get_module_title() )
 				->set_section_desc( $this->get_module_desc() )
 				->set_section_type( 'settings' )
@@ -74,6 +75,11 @@
 				->set_is_responsive(true)
 				->load_type( 'border' );
 
+			/* Block Theme Default Styles */
+			$this->get_script( 'no_margin' )
+				->set_is_gutenberg()
+				->set_path( 'lib/frontend/css/no_margin.css' );
+
 			return $this;
 		}
 
@@ -94,6 +100,18 @@
 			}
 			
 			$this->get_script( 'config' )->set_is_enqueued();
+			$this->get_script( 'no_margin' )->set_is_enqueued();
+
+			return $this;
+		}
+		protected function block_styles(): sv_block_paragraph {
+			$this->get_script('block')
+				->set_path('lib/backend/js/block.js')
+				->set_type('js')
+				->set_is_gutenberg()
+				->set_is_backend()
+				->set_deps(array('wp-blocks', 'wp-dom'))
+				->set_is_enqueued();
 
 			return $this;
 		}
