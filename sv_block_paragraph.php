@@ -87,9 +87,6 @@
 				->set_is_gutenberg()
 				->set_inline( true );
 
-			add_action('wp', array($this,'enqueue_scripts'));
-			add_action('admin_init', array($this,'enqueue_scripts'));
-
 			return $this;
 		}
 		public function enqueue_scripts(): sv_block_paragraph {
