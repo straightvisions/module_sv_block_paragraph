@@ -1,26 +1,16 @@
 <?php
 	namespace sv100;
 
-	/**
-	 * @version         4.001
-	 * @author			straightvisions GmbH
-	 * @package			sv100
-	 * @copyright		2019 straightvisions GmbH
-	 * @link			https://straightvisions.com
-	 * @since			1.000
-	 * @license			See license.txt or https://straightvisions.com
-	 */
-
 	class sv_block_paragraph extends init {
 		public function init() {
 			$this->set_module_title( __( 'Block: Paragraph', 'sv100' ) )
 				->set_module_desc( __( 'Settings for Gutenberg Block', 'sv100' ) )
-				->block_styles()
+				->set_css_cache_active()
 				->set_section_title( $this->get_module_title() )
 				->set_section_desc( $this->get_module_desc() )
 				->set_section_type( 'settings' )
-				->set_section_template_path( $this->get_path( 'lib/backend/tpl/settings.php' ) )
-				->set_section_order(130)
+				->set_section_template_path()
+				->set_section_order(5000)
 				->get_root()
 				->add_section( $this );
 		}
@@ -73,19 +63,15 @@
 				->set_is_responsive(true)
 				->load_type( 'border' );
 
-			/* Block Theme Default Styles */
-			$this->get_script( 'no_margin' )
-				->set_is_gutenberg()
-				->set_path( 'lib/frontend/css/no_margin.css' );
-
 			return $this;
 		}
-
 		protected function register_scripts(): sv_block_paragraph {
-			$this->get_script( 'config' )
-				->set_path( 'lib/frontend/css/config.php' )
+			parent::register_scripts();
+
+			// Register Styles
+			$this->get_script( 'style_no_margin' )
 				->set_is_gutenberg()
-				->set_inline( true );
+				->set_path( 'lib/css/common/style_no_margin.css' );
 
 			return $this;
 		}
@@ -99,18 +85,7 @@
 			}
 			
 			$this->get_script( 'config' )->set_is_enqueued();
-			$this->get_script( 'no_margin' )->set_is_enqueued();
-
-			return $this;
-		}
-		protected function block_styles(): sv_block_paragraph {
-			$this->get_script('block')
-				->set_path('lib/backend/js/block.js')
-				->set_type('js')
-				->set_is_gutenberg()
-				->set_is_backend()
-				->set_deps(array('wp-blocks', 'wp-dom'))
-				->set_is_enqueued();
+			$this->get_script( 'style_no_margin' )->set_is_enqueued();
 
 			return $this;
 		}
