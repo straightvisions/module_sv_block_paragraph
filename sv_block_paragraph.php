@@ -69,9 +69,9 @@
 			parent::register_scripts();
 
 			// Register Styles
-			$this->get_script( 'style_no_margin' )
+			$this->get_script( 'style_no_margin_vertical' )
 				->set_is_gutenberg()
-				->set_path( 'lib/css/common/style_no_margin.css' );
+				->set_path( 'lib/css/common/style_no_margin_vertical.css' );
 
 			return $this;
 		}
@@ -84,8 +84,9 @@
 				$this->load_settings()->register_scripts();
 			}
 			
-			$this->get_script( 'config' )->set_is_enqueued();
-			$this->get_script( 'style_no_margin' )->set_is_enqueued();
+			foreach($this->get_scripts() as $script){
+				$script->set_is_enqueued();
+			}
 
 			return $this;
 		}
