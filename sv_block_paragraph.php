@@ -72,6 +72,14 @@
 			$this->get_script( 'style_no_margin_vertical' )
 				->set_is_gutenberg()
 				->set_path( 'lib/css/common/style_no_margin_vertical.css' );
+			
+			$this->get_script( 'style_no_margin_left' )
+			     ->set_is_gutenberg()
+			     ->set_path( 'lib/css/common/style_no_margin_left.css' );
+			
+			$this->get_script( 'style_no_margin_right' )
+			     ->set_is_gutenberg()
+			     ->set_path( 'lib/css/common/style_no_margin_right.css' );
 
 			return $this;
 		}
