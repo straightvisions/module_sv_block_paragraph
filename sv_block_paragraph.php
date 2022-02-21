@@ -76,10 +76,18 @@
 			$this->get_script( 'style_no_margin_left' )
 			     ->set_is_gutenberg()
 			     ->set_path( 'lib/css/common/style_no_margin_left.css' );
-			
+
 			$this->get_script( 'style_no_margin_right' )
-			     ->set_is_gutenberg()
-			     ->set_path( 'lib/css/common/style_no_margin_right.css' );
+				->set_is_gutenberg()
+				->set_path( 'lib/css/common/style_no_margin_right.css' );
+
+			$this->get_script( 'style_align_wide' )
+				->set_is_gutenberg()
+				->set_path( 'lib/css/common/style_align_wide.css' );
+
+			$this->get_script( 'style_align_full' )
+				->set_is_gutenberg()
+				->set_path( 'lib/css/common/style_align_full.css' );
 
 			return $this;
 		}
