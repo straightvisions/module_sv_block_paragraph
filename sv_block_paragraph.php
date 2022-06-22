@@ -12,6 +12,7 @@
 				->set_section_order(5000)
 				->set_section_icon('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9.737 0c-3.72 0-6.737 2.779-6.737 6.5s3.279 6.5 7 6.5v11h2v-22h5v22h1.969v-20c0-1.592.381-2 2.031-2v-2h-11.263z"/></svg>')
 				->set_block_handle('wp-block-paragraph')
+				->set_block_name('core/paragraph')
 				->get_root()
 				->add_section( $this );
 		}
@@ -70,24 +71,14 @@
 			parent::register_scripts();
 
 			// Register Styles
-			$this->get_script( 'style_no_margin_vertical' )
+			$this->get_script( 'align-wide' )
 				->set_is_gutenberg()
-				->set_path( 'lib/css/common/style_no_margin_vertical.css' );
-			
-			$this->get_script( 'style_no_margin_left' )
-			     ->set_is_gutenberg()
-			     ->set_path( 'lib/css/common/style_no_margin_left.css' );
-
-			$this->get_script( 'style_no_margin_right' )
-				->set_is_gutenberg()
-				->set_path( 'lib/css/common/style_no_margin_right.css' );
-
-			$this->get_script( 'style_align_wide' )
-				->set_is_gutenberg()
+				->set_block_style(__('Align Wide', 'sv100'))
 				->set_path( 'lib/css/common/style_align_wide.css' );
 
-			$this->get_script( 'style_align_full' )
+			$this->get_script( 'align-full' )
 				->set_is_gutenberg()
+				->set_block_style(__('Align Full', 'sv100'))
 				->set_path( 'lib/css/common/style_align_full.css' );
 
 			return $this;
