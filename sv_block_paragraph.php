@@ -40,7 +40,6 @@
 
 			$this->get_setting( 'text_color' )
 				->set_title( __( 'Text Color', 'sv100' ) )
-				->set_default_value( '30,30,30,1' )
 				->set_is_responsive(true)
 				->load_type( 'color' );
 
