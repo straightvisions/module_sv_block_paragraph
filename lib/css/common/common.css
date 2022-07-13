@@ -1,4 +1,4 @@
 p > img, p > a > img{
 	height:auto;
-	vertical-align: text-top;
+	vertical-align: middle;
 }
