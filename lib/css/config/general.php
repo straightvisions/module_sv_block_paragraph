@@ -1,6 +1,6 @@
 <?php
 	echo $_s->build_css(
-		is_admin() ? '.editor-styles-wrapper p' : 'article p',
+		'article p',
 		array_merge(
 			$module->get_setting('font')->get_css_data('font-family'),
 			$module->get_setting('font_size')->get_css_data('font-size','','px'),
