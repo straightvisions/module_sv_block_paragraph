@@ -1,6 +1,8 @@
 <?php
+	
 	echo $_s->build_css(
-		'article p',
+		'.wp-site-blocks p,
+		.editor-styles-wrapper',
 		array_merge(
 			$module->get_setting('font')->get_css_data('font-family'),
 			$module->get_setting('font_size')->get_css_data('font-size','','px'),
@@ -11,3 +13,4 @@
 			$module->get_setting('border')->get_css_data()
 		)
 	);
+	
