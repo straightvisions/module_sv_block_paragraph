@@ -70,22 +70,19 @@
 			parent::register_scripts();
 
 			// Register Styles
-			$this->get_script( 'align-wide' )
+			$this->get_script( 'align_wide' )
 				->set_is_gutenberg()
 				->set_block_style(__('Align Wide', 'sv100'))
 				->set_path( 'lib/css/common/style_align_wide.css' );
 
-			$this->get_script( 'align-full' )
+			$this->get_script( 'align_full' )
 				->set_is_gutenberg()
 				->set_block_style(__('Align Full', 'sv100'))
 				->set_path( 'lib/css/common/style_align_full.css' );
 
-			$this->get_script( 'h1' )->set_block_style(__('Like H1', 'sv100'));
-			$this->get_script( 'h2' )->set_block_style(__('Like H2', 'sv100'));
-			$this->get_script( 'h3' )->set_block_style(__('Like H3', 'sv100'));
-			$this->get_script( 'h4' )->set_block_style(__('Like H4', 'sv100'));
-			$this->get_script( 'h5' )->set_block_style(__('Like H5', 'sv100'));
-			$this->get_script( 'h6' )->set_block_style(__('Like H6', 'sv100'));
+			foreach(array(1,2,3,4,5,6) as $i){
+				$this->get_script( 'h'.$i )->set_path('lib/css/styles/like_h'.$i)->set_block_style(__('Like H'.$i, 'sv100'));
+			}
 
 			return $this;
 		}
