@@ -70,12 +70,12 @@
 			parent::register_scripts();
 
 			// Register Styles
-			$this->get_script( 'align_wide' )
+			$this->get_script( 'align-wide' )
 				->set_is_gutenberg()
 				->set_block_style(__('Align Wide', 'sv100'))
 				->set_path( 'lib/css/common/style_align_wide.css' );
 
-			$this->get_script( 'align_full' )
+			$this->get_script( 'align-full' )
 				->set_is_gutenberg()
 				->set_block_style(__('Align Full', 'sv100'))
 				->set_path( 'lib/css/common/style_align_full.css' );
