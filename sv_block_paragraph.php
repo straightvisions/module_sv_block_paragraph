@@ -73,12 +73,12 @@
 			$this->get_script( 'align-wide' )
 				->set_is_gutenberg()
 				->set_block_style(__('Align Wide', 'sv100'))
-				->set_path( 'lib/css/common/style_align_wide.css' );
+				->set_path( 'lib/css/styles/align_wide.css' );
 
 			$this->get_script( 'align-full' )
 				->set_is_gutenberg()
 				->set_block_style(__('Align Full', 'sv100'))
-				->set_path( 'lib/css/common/style_align_full.css' );
+				->set_path( 'lib/css/styles/align_full.css' );
 
 			foreach(array(1,2,3,4,5,6) as $i){
 				$this->get_script( 'h'.$i )->set_path('lib/css/styles/like_h'.$i)->set_block_style(__('Like H'.$i, 'sv100'));
