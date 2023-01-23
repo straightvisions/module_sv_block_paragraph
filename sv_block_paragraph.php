@@ -28,7 +28,6 @@
 			$this->get_setting( 'font_size' )
 				->set_title( __( 'Font Size', 'sv100' ) )
 				->set_description( __( 'Font Size in Pixel', 'sv100' ) )
-				->set_default_value( $this->get_module( 'sv_common' ) ? $this->get_module( 'sv_common' )->get_setting('font_size')->get_data() : false )
 				->set_is_responsive(true)
 				->load_type( 'number' );
 
